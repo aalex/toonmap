@@ -1,0 +1,7 @@
+Installation instructions
+=========================
+
+Install on Ubuntu 14.04::
+
+  apt-get install python-txosc python-twisted
+

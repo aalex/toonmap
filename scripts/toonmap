@@ -1,0 +1,117 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+ToonMap: ToonLoop MapMap bridge.
+"""
+from twisted.internet import reactor
+from txosc import osc
+from txosc import async
+from txosc import dispatch
+
+__version__ = "0.0.1"
+
+class ToonLoopToMapMap(object):
+    """
+    Receives OSC from ToonLoop and sends OSC to MapMap.
+    """
+    def __init__(self, receive_osc_port=17777, send_osc_host="127.0.0.1", send_osc_port=12345, verbose=False):
+        """
+        @param receive_osc_port: OSC port to receive from
+        @param send_osc_port: OSC port to send to.
+        @param send_osc_host: OSC host to send to.
+        """
+        self._verbose = verbose
+        self._send_osc_host = send_osc_host
+        self._send_osc_port = send_osc_port
+        self._receive_osc_port = receive_osc_port
+        self._sender_protocol = None
+        self._sender = None
+        self._init_sender()
+        if self._receive_osc_port is None:
+            DEFAULT_OSC_RECV_PORT = 17777
+            self._receive_osc_port = DEFAULT_OSC_RECV_PORT
+        self._osc_receiver = dispatch.Receiver()
+        try:
+            self._osc_receive_port = reactor.listenUDP(self._receive_osc_port, async.DatagramServerProtocol(self._osc_receiver))
+        except CannotListenError, e:
+            print("Another instance of this application is already running!")
+            print(e)
+            sys.exit(1)
+        if self._verbose:
+            print("Listening on osc.udp://localhost:%s" % (self._receive_osc_port))
+        self._osc_receiver.addCallback("/toon/clip/playhead", self._toon_clip_playhead_handler)
+        DEBUG = False
+        if self._verbose and DEBUG:
+            print("%s" % (self.__dict__))
+
+    def start(self):
+        pass
+    def _toon_clip_playhead_handler(self, message, address):
+        """
+        Method handler for OSC message /toon/clip/playhead
+        """
+        if self._verbose:
+            print("  Got %s from %s" % (message, address))
+        args = message.getValues()
+        if len(args) != 3:
+            print("OSC: Wrong length of args")
+            return
+        if self._verbose and DEBUG:
+            print("OSC: args[0]: '%s'" % (args[0]))
+            print("OSC: args[1]: '%s'" % (args[1]))
+            print("OSC: args[2]: '%s'" % (args[2]))
+
+        clip_number = args[0]
+        image_number = args[1]
+        image_file_name = args[2]
+
+        MEDIA_ID = 0 # FIXME: we hard-coded the media here
+        self.mapmap_paint_media_load(MEDIA_ID, image_file_name)
+
+    def _init_sender(self):
+        self._sender = async.DatagramClientProtocol()
+        self._sender_protocol = reactor.listenUDP(0, self._sender)
+
+    def send(self, element):
+        """
+        @param element: txosc.osc.Message
+        """
+        # This method is defined only to simplify the example
+        self._sender.send(element, (self._send_osc_host, self._send_osc_port))
+        if self._verbose:
+            print("Sent %s to %s:%d" % (element, self._send_osc_host, self._send_osc_port))
+
+    def mapmap_paint_media_load(self, media_id, file_uri):
+        """
+        osc-send -p 12345 /mapmap/paint/media/load ,is 0 /home/aalex/Desktop/example.jpg
+
+        @param value: value to send [0, 127]
+        """
+        osc_path = "/mapmap/paint/media/load"
+        self.send(osc.Message(osc_path, media_id, file_uri))
+
+def run():
+    # command line parsing
+    parser = OptionParser(usage="%prog", version=str(__version__), description=DESCRIPTION)
+    parser.add_option("-H", "--send-osc-host", type="string", help="Hostname or IP where Resolume Arena or Millumin is")
+    parser.add_option("-p", "--send-osc-port", type="int", help="OSC port to which Resolume Arena or Millumin listens")
+    parser.add_option("-P", "--receive-osc-port", type="int", help="OSC port to listen to for testing")
+    parser.add_option("-v", "--verbose", action="store_true", help="Enables a verbose logging output with info level messages.")
+    (options, args) = parser.parse_args()
+
+    app = ToonLoopToMapMap(
+        verbose=options.verbose,
+        send_osc_host=options.send_osc_host,
+        send_osc_port=options.send_osc_port,
+        osc_receive_port=options.receive_osc_port)
+    app.start()
+    if options.verbose:
+        print("Running ToonMap")
+
+if __name__ == "__main__":
+    run()
+    try:
+        reactor.run()
+    except KeyboardInterrupt:
+        print("Bye")
+
