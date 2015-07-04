@@ -4,11 +4,13 @@
 ToonMap: ToonLoop MapMap bridge.
 """
 from twisted.internet import reactor
+from optparse import OptionParser
 from txosc import osc
 from txosc import async
 from txosc import dispatch
 
 __version__ = "0.0.1"
+DESCRIPTION = "Controls MapMap from ToonLoop"
 
 class ToonLoopToMapMap(object):
     """
@@ -22,8 +24,14 @@ class ToonLoopToMapMap(object):
         """
         self._verbose = verbose
         self._send_osc_host = send_osc_host
+        if self._send_osc_host is None:
+            self._send_osc_host = "127.0.0.1"
         self._send_osc_port = send_osc_port
+        if self._send_osc_port is None:
+            self._send_osc_port = 12345
         self._receive_osc_port = receive_osc_port
+        if self._receive_osc_port is None:
+            self._receive_osc_port = 17777
         self._sender_protocol = None
         self._sender = None
         self._init_sender()
@@ -103,7 +111,7 @@ def run():
         verbose=options.verbose,
         send_osc_host=options.send_osc_host,
         send_osc_port=options.send_osc_port,
-        osc_receive_port=options.receive_osc_port)
+        receive_osc_port=options.receive_osc_port)
     app.start()
     if options.verbose:
         print("Running ToonMap")
