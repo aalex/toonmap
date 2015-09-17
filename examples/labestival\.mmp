@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapmap>
+<project version="0.1">
+    <paints>
+        <paint id="0" type="image">
+            <uri>/media/toonloop/ELBY_2_FAT/toonloop/project/images/20150704T145333.589358.jpg</uri>
+            <x>-165</x>
+            <y>-191.5</y>
+        </paint>
+    </paints>
+    <mappings>
+        <mapping id="0" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+            <destination shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="-165" y="-191.5"/>
+                <vertex x="1115" y="-191.5"/>
+                <vertex x="-165" y="528.5"/>
+                <vertex x="1115" y="528.5"/>
+            </destination>
+            <source shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="-165" y="-191.5"/>
+                <vertex x="1115" y="-191.5"/>
+                <vertex x="-165" y="528.5"/>
+                <vertex x="1115" y="528.5"/>
+            </source>
+        </mapping>
+    </mappings>
+</project>
