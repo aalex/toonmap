@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapmap>
+<project version="0.1">
+    <paints>
+        <paint id="0" type="image">
+            <uri>/home/aalex/Documents/toonloop/pds-indexdesign/images/20150916T151305.900742.jpg</uri>
+            <x>80</x>
+            <y>-105</y>
+        </paint>
+    </paints>
+    <mappings>
+        <mapping id="0" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+            <destination shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="795" y="756"/>
+                <vertex x="962" y="685"/>
+                <vertex x="794" y="999"/>
+                <vertex x="963" y="912"/>
+            </destination>
+            <source shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="80" y="-105"/>
+                <vertex x="720" y="-105"/>
+                <vertex x="80" y="375"/>
+                <vertex x="720" y="375"/>
+            </source>
+        </mapping>
+        <mapping id="1" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+            <destination shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="1244" y="1"/>
+                <vertex x="1884" y="1"/>
+                <vertex x="1244" y="481"/>
+                <vertex x="1884" y="481"/>
+            </destination>
+            <source shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="80" y="-105"/>
+                <vertex x="720" y="-105"/>
+                <vertex x="80" y="375"/>
+                <vertex x="720" y="375"/>
+            </source>
+        </mapping>
+        <mapping id="2" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+            <destination shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="661" y="696"/>
+                <vertex x="813" y="631"/>
+                <vertex x="778" y="753"/>
+                <vertex x="966" y="679"/>
+            </destination>
+            <source shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="80" y="-105"/>
+                <vertex x="720" y="-105"/>
+                <vertex x="80" y="375"/>
+                <vertex x="720" y="375"/>
+            </source>
+        </mapping>
+        <mapping id="3" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+            <destination shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="665" y="714"/>
+                <vertex x="798" y="751"/>
+                <vertex x="663" y="915"/>
+                <vertex x="797" y="994"/>
+            </destination>
+            <source shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="80" y="-105"/>
+                <vertex x="720" y="-105"/>
+                <vertex x="80" y="375"/>
+                <vertex x="720" y="375"/>
+            </source>
+        </mapping>
+    </mappings>
+</project>
