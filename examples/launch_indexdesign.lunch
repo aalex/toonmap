@@ -1,0 +1,12 @@
+#!/usr/bin/env lunch
+"""
+Lunch script for Toonloop + MapMap
+Index Design @ Perte de Signal
+"""
+
+import os
+
+add_command(os.path.expanduser("~/src/toonmap/scripts/toonmap"))
+add_command(os.path.expanduser("~/src/toonmap/examples/toonloop-indexdesign.sh"))
+add_command("mapmap -f %s" % (os.path.expanduser("~/src/toonmap/examples/indexdesign.mmp")))
+
