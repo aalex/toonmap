@@ -19,6 +19,11 @@ sudo apt-get install -y screen openssh-server
 
 Install required software
 -------------------------
+All of them:
+
+sudo apt-get install -y git vim lunch liblo-dev libglew-dev qttools5-dev-tools qt5-default libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-gnonlin gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-plugins-base gstreamer1.0-plugins-base-apps gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-x gstreamer1.0-tools automake bison flex gettext gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-x help2man libasound2-dev libavc1394-dev libboost-date-time-dev libboost-filesystem-dev libboost-program-options-dev libboost-signals-dev libboost-system-dev libboost-thread-dev libclutter-1.0-dev libclutter-gst-2.0-dev libgdk-pixbuf2.0-dev libglew1.6-dev libglib2.0-dev libglu1-mesa-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libgtk2.0-dev libjack-dev liblo-dev libraw1394-dev libstk0-dev libtool libxml2-dev libxv-dev mencoder python-txosc python-twisted
+
+
 sudo apt-get install -y git vim lunch
 mkdir -p ~/src
 cd ~/src/
@@ -58,4 +63,9 @@ cd ~/src/toonloop/
 git checkout develop
 ./one_click_build.sh
 
+sudo apt-get install -y python-txosc python-twisted
+
+
+cd ~/src/toonmap
+lunch -g ./scripts/launch_index-design.lunch
 
