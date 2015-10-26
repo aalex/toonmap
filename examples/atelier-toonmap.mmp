@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapmap>
+<project version="0.1">
+    <paints>
+        <paint id="0" type="image">
+            <uri>/home/art/src/toonmap/examples/example-image.jpg</uri>
+            <x>315</x>
+            <y>-61.5</y>
+        </paint>
+    </paints>
+    <mappings>
+        <mapping id="0" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+            <destination shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="315" y="-61.5"/>
+                <vertex x="955" y="-61.5"/>
+                <vertex x="315" y="418.5"/>
+                <vertex x="955" y="418.5"/>
+            </destination>
+            <source shape="mesh">
+                <dimensions columns="2" rows="2"/>
+                <vertex x="315" y="-61.5"/>
+                <vertex x="955" y="-61.5"/>
+                <vertex x="315" y="418.5"/>
+                <vertex x="955" y="418.5"/>
+            </source>
+        </mapping>
+    </mappings>
+</project>

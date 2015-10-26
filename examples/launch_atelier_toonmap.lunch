@@ -1,0 +1,13 @@
+#!/usr/bin/env lunch
+"""
+Lunch script for Toonloop + MapMap
+Atelier ToonMap de Perte de Signal
+"""
+
+import os
+
+add_command(os.path.expanduser("~/src/toonmap/scripts/toonmap"))
+add_command(os.path.expanduser("~/src/toonmap/examples/toonloop-atelier-toonmap.sh"))
+add_command("mapmap -f %s" % (os.path.expanduser("~/src/toonmap/examples/atelier-toonmap.mmp")))
+add_command("v4l2ucp /dev/video1")
+
