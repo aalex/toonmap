@@ -71,3 +71,5 @@ lunch -g ./scripts/launch_index-design.lunch
 
 sudo apt-get install -y aptitude terminator ivtv-utils v4l2 qv4l2
 
+ln -s ~/src/toonmap/examples/launch_atelier_toonmap.lunch ~/.lunchrc
+
