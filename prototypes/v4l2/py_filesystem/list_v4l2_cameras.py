@@ -20,6 +20,7 @@ class Camera(object):
 def list_v4l2_cameras():
     """
     Lists V4L2 cameras by looking at the Linux file system.
+    See http://stackoverflow.com/questions/4290834/how-to-get-a-list-of-video-capture-devices-web-cameras-on-linux-ubuntu-c
     """
     ret = []
     # V4L2 documentation says that there can be 64 allowed devices for each type.
