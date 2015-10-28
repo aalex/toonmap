@@ -39,15 +39,18 @@ class WizardWindow(Gtk.Window):
         Gtk.main_quit()
 
     def camera_combo_changed_cb(self, combo):
+        print("camera_combo_changed_cb")
         tree_iter = combo.get_active_iter()
         if tree_iter != None:
             model = combo.get_model()
             value = model[tree_iter][0]
             print("Selected: value=%s" % value)
             try:
-                self.configuration.video_device = value.split(" ")[0]
+                video_source = value.split(" ")[0]
+                print("Set video-source to %s" % (video_source))
+                self.configuration.video_source = video_source
             except KeyError, e:
-                print(e)
+                print("KeyError while setting video source %s" % (e))
 
 
     def on_run_clicked(self, widget):
@@ -78,5 +81,5 @@ def show_window_and_update_config(configuration):
     win.show_all()
     Gtk.main()
 
-    return configuration
+    return win.configuration
 
