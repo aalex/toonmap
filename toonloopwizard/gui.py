@@ -29,6 +29,14 @@ class WizardWindow(Gtk.Window):
         button1.connect("clicked", self.on_folder_clicked)
         box.add(button1)
 
+        button2 = Gtk.Button("Run Toonloop!")
+        button2.connect("clicked", self.on_run_clicked)
+        box.add(button2)
+
+        self.connect('destroy', self.destroy_cb)
+
+    def destroy_cb(self, window):
+        Gtk.main_quit()
 
     def camera_combo_changed_cb(self, combo):
         tree_iter = combo.get_active_iter()
@@ -41,6 +49,10 @@ class WizardWindow(Gtk.Window):
             except KeyError, e:
                 print(e)
 
+
+    def on_run_clicked(self, widget):
+        print("Running Toonloop!")
+        self.destroy()
 
     def on_folder_clicked(self, widget):
         dialog = Gtk.FileChooserDialog("Please choose a folder", self,

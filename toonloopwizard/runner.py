@@ -3,9 +3,9 @@
 """
 Main entry point of the program.
 """
-from twisted.internet import gtk3reactor
-gtk3reactor.install()
-from twisted.internet import reactor
+# from twisted.internet import gtk3reactor
+# gtk3reactor.install()
+# from twisted.internet import reactor
 
 from toonloopwizard import gui
 from toonloopwizard import config
@@ -13,6 +13,7 @@ from toonloopwizard import __version__
 import optparse
 import os
 import sys
+import subprocess
 
 
 def run():
@@ -47,4 +48,8 @@ def run():
     configuration = gui.show_window_and_update_config(configuration)
 
     print(configuration)
-
+    # Run Toonloop
+    command = str(configuration)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+    process.wait()
+    print(process.returncode)
