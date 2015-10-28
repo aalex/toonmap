@@ -1,0 +1,16 @@
+TODO
+====
+Toonloop Wizard
+----------------
+
+* List cameras and allow user to choose one
+* Allow user to choose a Toonloop project file
+* Launch Toonloop
+
+
+Later
+~~~~~
+* Allow user to choose a video image size
+* Test source, X source
+* display, fullscreen, midi-input, osc, mouse controls, max-images-per-clip, intervalometer
+

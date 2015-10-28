@@ -1,7 +1,13 @@
 Installation instructions
 =========================
 
-Install on Ubuntu 14.04::
+Install the dependencies for toonmap on Ubuntu 14.04::
 
-  apt-get install python-txosc python-twisted
+  apt-get install -y python-txosc python-twisted
+  
+Install toonloop-wizard on Ubuntu 14.04::
+
+  apt-get install -y lunch  gir1.2-gtk-3.0 python python-gi 
+  python setup.py build
+  sudo python setup.py install
 
