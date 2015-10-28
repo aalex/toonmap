@@ -67,7 +67,7 @@ sudo apt-get install -y python-txosc python-twisted
 
 
 cd ~/src/toonmap
-lunch -g ./scripts/launch_index-design.lunch
+lunch -g ./scripts/launch_atelier_toonmap.lunch
 
 sudo apt-get install -y aptitude terminator ivtv-utils v4l2uvc qv4l2
 
