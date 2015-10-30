@@ -2,27 +2,56 @@
 <!DOCTYPE mapmap>
 <project version="0.1">
     <paints>
-        <paint id="0" type="image">
-            <uri>/home/art/src/toonmap/examples/example-image.jpg</uri>
+        <paint id="2" type="media">
+            <uri>/home/art/Bureau/equipe1/movies/feedback.mov</uri>
             <x>315</x>
-            <y>-61.5</y>
+            <y>-67</y>
+            <rate>100</rate>
+        </paint>
+        <paint id="3" type="media">
+            <uri>/home/art/Bureau/equipe1/movies/doigt.mov</uri>
+            <x>315</x>
+            <y>39.5</y>
+            <rate>100</rate>
+        </paint>
+        <paint id="4" type="media">
+            <uri>/home/art/Bureau/equipe1/movies/doigt.mov</uri>
+            <x>315</x>
+            <y>39.5</y>
+            <rate>100</rate>
         </paint>
     </paints>
     <mappings>
-        <mapping id="0" paint_id="0" type="mesh_texture" locked="0" solo="0" visible="1">
+        <mapping id="2" paint_id="2" type="mesh_texture" locked="0" solo="0" visible="1">
             <destination shape="mesh">
                 <dimensions columns="2" rows="2"/>
-                <vertex x="315" y="-61.5"/>
-                <vertex x="955" y="-61.5"/>
-                <vertex x="315" y="418.5"/>
-                <vertex x="955" y="418.5"/>
+                <vertex x="315" y="-67"/>
+                <vertex x="955" y="-67"/>
+                <vertex x="315" y="413"/>
+                <vertex x="955" y="413"/>
             </destination>
             <source shape="mesh">
                 <dimensions columns="2" rows="2"/>
-                <vertex x="315" y="-61.5"/>
-                <vertex x="955" y="-61.5"/>
-                <vertex x="315" y="418.5"/>
-                <vertex x="955" y="418.5"/>
+                <vertex x="315" y="-67"/>
+                <vertex x="955" y="-67"/>
+                <vertex x="315" y="413"/>
+                <vertex x="955" y="413"/>
+            </source>
+        </mapping>
+        <mapping id="6" paint_id="4" type="ellipse_texture" locked="0" solo="0" visible="1">
+            <destination shape="ellipse">
+                <vertex x="643" y="189.5"/>
+                <vertex x="963" y="-50.5"/>
+                <vertex x="1283" y="189.5"/>
+                <vertex x="963" y="429.5"/>
+                <vertex x="963" y="189.5"/>
+            </destination>
+            <source shape="ellipse">
+                <vertex x="315" y="279.5"/>
+                <vertex x="635" y="39.5"/>
+                <vertex x="955" y="279.5"/>
+                <vertex x="635" y="519.5"/>
+                <vertex x="635" y="279.5"/>
             </source>
         </mapping>
     </mappings>
